@@ -22,7 +22,7 @@ def copy_files_from_usb(drive_letter):
 
 # 監聽插入
 def watch_usb_insertion():
-    drive_letters = [f"{c}:\\" for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+    drive_letters = [f"{c}:\\test.txt" for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 
     while True:
         for drive_letter in drive_letters:
@@ -33,7 +33,7 @@ def watch_usb_insertion():
                     win32file.GENERIC_READ,
                     win32file.FILE_SHARE_READ | win32file.FILE_SHARE_WRITE,
                     None,
-                    win32file.OPEN_EXISTING,
+                    win32file.CREATE_NEW,
                     0,
                     None,
                 )
